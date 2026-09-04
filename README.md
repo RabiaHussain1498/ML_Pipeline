@@ -8,8 +8,10 @@ A reproducible machine learning pipeline built using the `students` dataset. Thi
 * Reproducible train/test splitting
 * Regression baseline vs. Linear Regression
 * Classification baseline vs. Logistic Regression
+* Decision Trees and Random Forests
 * Model evaluation using RMSE, R², Accuracy, Precision, Recall, and F1-score
 * Feature coefficient analysis
+* Error analysis
 * Fixed random seeds for reproducibility
 
-The notebook provides a baseline-to-first-model comparison and establishes a foundation for further model iteration and error analysis.
+
