@@ -12,7 +12,7 @@ Both tasks follow a fixed random seed (42) to ensure reproducibility and compare
 ### Regression
 
 | Model | RMSE | R² |
-|---|---:|---:|---|
+|---|---:|---|
 | Baseline: Dummy Regressor (mean strategy) | 10.30 | −0.0096 | 
 | Linear Regression | **7.06** | **0.5257** | 
 | Decision Tree (unconstrained) | 9.84 | 0.0782 | 
