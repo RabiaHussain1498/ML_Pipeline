@@ -10,17 +10,21 @@ Both tasks follow a fixed random seed (42) to ensure reproducibility and compare
 ## Models Compared
 
 ### Regression
-- **Baseline**: Dummy regressor (mean strategy) — RMSE: 10.30, R²: −0.0096
-- **Linear Regression**: RMSE: 7.06, R²: 0.5257
-- **Decision Tree (unconstrained)**: RMSE: 9.84, R²: 0.0782 (severe overfitting: train RMSE 0.00)
-- **Decision Tree (max_depth=3)**: RMSE: 7.10, R²: 0.5197
-- **Random Forest (n_estimators=200)**: RMSE: 7.40, R²: 0.4785
+
+Model	RMSE	R²	Notes
+Baseline: Dummy Regressor (mean strategy)	10.30	−0.0096	
+Linear Regression	7.06	0.5257	
+Decision Tree (unconstrained)	9.84	0.0782	
+Decision Tree (max_depth=3)	7.10	0.5197	
+Random Forest (n_estimators=200)	7.40	0.4785	
 
 ### Classification
-- **Baseline**: Dummy classifier (strategy='most_frequent') — Accuracy: ~0.60, Precision: ~0.60, Recall: 1.0, F1: ~0.75
-- **Logistic Regression**: Accuracy: 0.8667, Precision: 0.8125, Recall: 0.8333, F1: 0.8229
-- **Decision Tree (max_depth=3)**: Accuracy: 0.85, Precision: 0.7238, Recall: 0.9744, F1: 0.8306
-- **Random Forest (n_estimators=200)**: Accuracy: 0.85, Precision: 0.7381, Recall: 0.9487, F1: 0.8333
+
+Model	Accuracy	Precision	Recall	F1 Score
+Baseline: Dummy Classifier (most_frequent)	~0.60	~0.60	1.00	~0.75
+Logistic Regression	0.8667	0.8125	0.8333	0.8229
+Decision Tree (max_depth=3)	0.8500	0.7238	0.9744	0.8306
+Random Forest (n_estimators=200)	0.8500	0.7381	0.9487	0.8333
 
 ## Chosen Final Models and Rationale
 
