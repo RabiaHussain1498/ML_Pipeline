@@ -11,20 +11,22 @@ Both tasks follow a fixed random seed (42) to ensure reproducibility and compare
 
 ### Regression
 
-Model	RMSE	R²	Notes
-Baseline: Dummy Regressor (mean strategy)	10.30	−0.0096	
-Linear Regression	7.06	0.5257	
-Decision Tree (unconstrained)	9.84	0.0782	
-Decision Tree (max_depth=3)	7.10	0.5197	
-Random Forest (n_estimators=200)	7.40	0.4785	
+| Model | RMSE | R² | Notes |
+|---|---:|---:|---|
+| Baseline: Dummy Regressor (mean strategy) | 10.30 | −0.0096 | 
+| Linear Regression | **7.06** | **0.5257** | 
+| Decision Tree (unconstrained) | 9.84 | 0.0782 | 
+| Decision Tree (max_depth=3) | 7.10 | 0.5197 | 
+| Random Forest (n_estimators=200) | 7.40 | 0.4785 | 
 
 ### Classification
 
-Model	Accuracy	Precision	Recall	F1 Score
-Baseline: Dummy Classifier (most_frequent)	~0.60	~0.60	1.00	~0.75
-Logistic Regression	0.8667	0.8125	0.8333	0.8229
-Decision Tree (max_depth=3)	0.8500	0.7238	0.9744	0.8306
-Random Forest (n_estimators=200)	0.8500	0.7381	0.9487	0.8333
+| Model | Accuracy | Precision | Recall | F1 Score |
+|---|---:|---:|---:|---:|
+| Baseline: Dummy Classifier (most_frequent) | ~0.60 | ~0.60 | 1.00 | ~0.75 |
+| Logistic Regression | **0.8667** | **0.8125** | 0.8333 | 0.8229 |
+| Decision Tree (max_depth=3) | 0.8500 | 0.7238 | **0.9744** | 0.8306 |
+| Random Forest (n_estimators=200) | 0.8500 | 0.7381 | 0.9487 | **0.8333** |
 
 ## Chosen Final Models and Rationale
 
@@ -32,7 +34,7 @@ Random Forest (n_estimators=200)	0.8500	0.7381	0.9487	0.8333
 Linear regression is the clear winner. It achieved the lowest test RMSE (7.06) and highest R² (0.5257) among all models. The unconstrained decision tree failed catastrophically: perfect training RMSE (0.00) but near-useless test performance (RMSE 9.84, R² 0.0782), demonstrating severe overfitting. The depth-3 tree matched linear regression's performance (7.10/0.5197) without beating it. Most notably, the random forest—the most complex model—performed *worse* than simple linear regression (RMSE 7.40, R² 0.4785). This directly validates the central lesson: added flexibility does not guarantee better generalization. Linear regression's simplicity, interpretability, and best-in-class test metrics make it the defensible choice.
 
 ### Classification: **Logistic Regression**
-Logistic regression is chosen over depth-3 tree and random forest despite the tree posting the highest F1 (0.8306). The tree achieves this through extremely high recall (0.9744) at the cost of precision (0.7238)—it's catching almost all distinction students but generating many false positives. Logistic regression's balanced metrics (0.8125 precision, 0.8333 recall, F1 0.8229) reflect a model that doesn't overfit to one error type. More importantly, logistic regression is simpler to explain, deploy, and defend. The random forest offers no advantage: it matches the tree's F1 but without the simplicity of logistic regression. The choice reflects a principled trade-off: capture true signals cleanly rather than chase recall at precision's expense.
+Logistic regression is chosen over depth-3 tree and random forest despite the tree posting the highest F1 (0.8306). The tree achieves this through extremely high recall (0.9744) at the cost of precision (0.7238)—it's catching almost all distinction students but generating many false positives. Logistic regression's balanced metrics (0.8125 precision, 0.8333 recall, F1 0.8229) reflect a model that doesn't overfit to one error type. The choice reflects a principled trade-off: capture true signals cleanly rather than chase recall at precision's expense.
 
 ## Error Analysis
 
